@@ -13,12 +13,7 @@
       <canvas id="gc" width="400" height="400"></canvas>
     <!--Developer details-->
     <div class="dev-details">Developed by Conner McAbee</div>
-    <div>
-      View source code on
-      <a href="https://github.com/connercodes/Snake-Game" target="_blank">GitHub.</a>
-    </div>
-
-
+ 
 	<script>
 	window.onload=function() {
 		canv=document.getElementById("gc");
@@ -49,10 +44,11 @@
 			py= 0;
 		}
 
-	  //colors canvas black
+	  	//colors canvas black
 		ctx.fillStyle="black";
 		ctx.fillRect(0,0,canv.width,canv.height);
-	  //
+		
+		//colors snake lime green
 		ctx.fillStyle="lime";
 		for(var i=0;i<trail.length;i++) {
 			ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
@@ -60,6 +56,7 @@
 				tail = 5;
 			}
 		}
+		//makes snake grow
 		trail.push({x:px,y:py});
 		while(trail.length>tail) {
 		trail.shift();
@@ -70,6 +67,8 @@
 			ax=Math.floor(Math.random()*tc);
 			ay=Math.floor(Math.random()*tc);
 		}
+		
+		//colors food red
 		ctx.fillStyle="red";
 		ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
 	}
